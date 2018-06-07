@@ -27,7 +27,6 @@
 
 function onDeviceReady() {
   console.log("deviceready");
-  window.plugins.notification.badge.set(10);
   var notificationOpenedCallback = function(jsonData) {
     console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
   };
