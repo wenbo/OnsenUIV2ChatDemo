@@ -25,5 +25,5 @@ Monacaでcordova appを開発することをやってみたい方は下記の手
 ![Cloud IDE](https://raw.githubusercontent.com/wenbo/OnsenUIV2ChatDemo/master/www/images/monaca_ko_1.png)
 
 ## おわりに
-Monacaは使いやすいクラウドIDEだけではなくて![公式コミュニティ](https://teratail.com/tags/monaca)もあるので、モバイルアプリ開発を行う時に
+Monacaは使いやすいクラウドIDEだけではなくて![公式コミュニティ](https://teratail.com/tags/monaca) もあるので、モバイルアプリ開発を行う時に
 いい選択肢かもしれないです。
