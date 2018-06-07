@@ -13,6 +13,22 @@
   <link rel="stylesheet" href="css/style.css">
 
   <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+        
+        function onDeviceReady() {
+            console.log("deviceready");
+            window.plugins.notification.badge.set(10);
+            var notificationOpenedCallback = function(jsonData) {
+                console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+            };
+        
+            window.plugins.OneSignal
+                .startInit("eb5ece26-15d9-4d58-9ee9-e70ff3cdbb83")
+                .handleNotificationOpened(notificationOpenedCallback)
+                .endInit();
+        }
+
+
     ons.ready(function() {
       console.log("Onsen UI is ready!");
     });
@@ -20,8 +36,8 @@
 ons.forcePlatformStyling('ios');
 
 // WebSocketサーバの定義
-//var uri = "wss://ruby-websockets-chat.herokuapp.com/";
-var uri = "ws://192.168.10.3:5000/";
+var uri = "wss://ruby-websockets-chat.herokuapp.com/";
+//var uri = "ws://192.168.10.3:5000/";
 var ws = null;  // WebSocketオブジェクト
 
 var username;   // ユーザー名
@@ -51,7 +67,7 @@ document.addEventListener('init', function(event) {
       var data = JSON.parse(message.data);
       
       // 送信元が自分か他人かで画面のデザインを変更
-      if (data.handle == username) {
+      if (data.handle == username) {　　　　
         $('#chats').append(`
               <ons-list-item modifier="nodivider">
                 <div class="right">
@@ -82,6 +98,7 @@ document.addEventListener('init', function(event) {
 // Onsen UIロード完了時の処理
 ons.ready(function() {
   // 入室画面に戻るときの処理
+
   $('#navigator').on('prepop', function() {
     // WebSocket切断
     ws.close();
